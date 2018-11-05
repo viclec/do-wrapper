@@ -548,6 +548,23 @@ export default class DigitalOcean {
       method: 'DELETE'
     };
     return this._handleRequest(options, callback);
+  }  
+
+  /**
+   * Create a New Project
+   * Info: {@link https://developers.digitalocean.com/documentation/v2/#create-a-new-project create-a-new-project}
+   *
+   * @param {*} configuration - Creation parameters, see info for more details.
+   * @param {*} [callback] - Optional function to execute on completion
+   * @returns {Promise|undefined} - Returns a promise if [callback] is not defined
+   */
+  projectsCreate(configuration, callback) {
+    const options = {
+      actionPath: 'projects',
+      method: 'POST',
+      body: configuration
+    };
+    return this._handleRequest(options, callback);
   }
 
   /**
